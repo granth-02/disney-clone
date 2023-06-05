@@ -27,7 +27,7 @@ const Header = (props) => {
             history("/home");
           }
         });
-      }, [userName]);
+      },  [userName]);
       
 
     const handleAuth = () => {
@@ -57,7 +57,7 @@ const Header = (props) => {
             setUserLoginDetails({
                 name: user.displayName,
                 email: user.email,
-                photo: user.photo
+                photo: user.photoURL
             })
         )
     }
@@ -101,7 +101,7 @@ const Header = (props) => {
             </NavMenu>
             <SignOut>
                 <UserNm>
-                    <h1>{userName}</h1>
+                    <img src={(userPhoto)} alt="profile-pic" />
                     <DropDown>
                         <span onClick={handleAuth}>Sign Out</span>
                     </DropDown>
@@ -242,9 +242,12 @@ const Login = styled.a`
 
 `
 
-const UserNm = styled.h1`
-    letter-spacing: normal;
-    font-size: 16px;
+const UserNm = styled.div`
+    img{
+        border-radius: 50%;
+        height: 55px;
+        margin-right: 3px;
+    }
 
     
 `
